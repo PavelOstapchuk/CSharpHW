@@ -1,7 +1,9 @@
 ﻿// Практическое задание 2.
 // Задача 10. Принимает на вход трехзначное числое. На выходе показывает 2ую цифру этого числа. Обязательна проверка на ввод чисел больше/меньше трех знаков.
 // Вариант 1:
+Console.WriteLine();
 Console.WriteLine("Задача 10. Ввод трехзначного числа. Вывод второй цифры.");
+Console.WriteLine();
 Console.WriteLine("Вариант 1.");
 Console.WriteLine("Введите трехзначное число: ");
 int NNN = int.Parse(Console.ReadLine()!);
@@ -17,19 +19,24 @@ else
 Console.WriteLine();
 Console.WriteLine("Вариант 2.");
 Console.WriteLine("Введите трехзначное число: ");
-string Numbers = Console.ReadLine();
-if (Numbers.Length != 3)
+string Array = Console.ReadLine()!;
+if (Array.Length != 3)
 {
     Console.WriteLine("Введеное число не является трехзначным.");
 }
 else
 {
-    Console.WriteLine($"Вторая цифра введенного числа: {Numbers[1]}");
+    Console.WriteLine($"Вторая цифра введенного числа: {Array[1]}");
 }
 
 
 // Задача 13. Вывод третьей цифры заданного числа или сообщение, что третьей цифры нет. Числа до 100000.
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("Задача 13. Вывод третьей цифры заданного числа.");
 // Вариант 1:
+Console.WriteLine();
+Console.WriteLine("Вариант 1.");
 int number = new Random().Next(1, 100001);
 Console.WriteLine($"Выбранное число: {number}");
 if (100 > number)
@@ -60,23 +67,32 @@ else
     }
 }
 // Вариант 2:
+Console.WriteLine();
+Console.WriteLine("Вариант 2.");
 Console.WriteLine("Введите число до 100000: ");
-string Numbers = Console.ReadLine();
+string Numbers = Console.ReadLine()!;
 if (Numbers.Length > 6)
 {
     Console.WriteLine("Введено слишком длинное число.");
 }
-if (Numbers.Length <3)
-{
-    Console.WriteLine("В введенном числе нет третьей цифры.");
-}
 else
-{
-    Console.WriteLine($"Третья цифра введенного числа:{Numbers[2]}");
-}
+    {
+        if (Numbers.Length <3)
+        {
+            Console.WriteLine("В введенном числе нет третьей цифры.");
+        }
+        else
+        {
+            Console.WriteLine($"Третья цифра введенного числа: {Numbers[2]}");
+        }
+    }
 
 
 // Задача 15. Принимает на вход цифру дня недели, проверяет является ли это день выходным. Обазательная проверка на ввод числа от 1 до 7.
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("Задача 15. Проверка дня недели будний/выходной по номеру");
+Console.WriteLine();
 Console.WriteLine("Введите порядковый номер дня недели: ");
 int DayNumber = int.Parse(Console.ReadLine()!);
 if (DayNumber > 7|| DayNumber <1)
@@ -94,6 +110,7 @@ else
         Console.WriteLine("Это выхоной день.");
     }
 }
+Console.WriteLine();
 
 
 // базовые алгоритмы
