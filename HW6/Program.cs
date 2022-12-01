@@ -6,25 +6,28 @@ switch (task)
     case 41:
         // задача 1. Ввод N чисел с клавиатуры
         // Посчитать сколько чисел  больше 0
-        Console.WriteLine($"Задача {task}. Посчитать среди N введенных чисел количество чисел больше 0.");
+        Console.WriteLine($"Задача {task}. Посчитать среди M введенных чисел количество чисел больше 0.");
         Console.WriteLine($"Введите количество задаваемых чисел:");
-        int N41 = int.Parse(Console.ReadLine()!);
-        int[] array41 = EnterNewArray(N41);
+        int M41 = int.Parse(Console.ReadLine()!);
+        int[] array41 = EnterNewArray(M41);
         Console.WriteLine($"[{String.Join(" ", array41)}]");
-        Console.WriteLine($"{PositiveCount(array41)} из заданных чисел больше 0");
+        Console.WriteLine($"{PositiveCount(array41)} из заданных {M41} чисел больше 0");
         break;
     case 43:
         // на вход массив не менее 6 элементов от 0 до 100
         // на выход - этот массив по возрастанию
         Console.WriteLine($"Задача {task}. Отсортировать по возрастанию массив в промежутке от 0 до 100.");
-        Console.WriteLine($"Введите количество задаваемых чисел, не менее 6:");
+        Console.WriteLine($"Введите количество задаваемых чисел (не менее 6):");
         int N43 = int.Parse(Console.ReadLine()!);
         int[] array43 = GetRandArray(N43, 0, 100);
-        Console.WriteLine($"Заданный массив:");
+        Console.WriteLine($"Начальный массив:");
         Console.WriteLine($"[{String.Join(" ", array43)}]");
-
-
-
+        Console.WriteLine($"Отсортированный массив:");
+        int[] NewSortArray43 = GetNewSortedArray(array43);
+        Console.WriteLine($"[{String.Join(" ", NewSortArray43)}]");
+        SortArray(array43);
+        Console.WriteLine($"[{String.Join(" ", array43)}]");
+        break;
 }
 //----methods-----
 int[] GetRandArray(int size, int min, int max)
@@ -60,8 +63,26 @@ int PositiveCount(int[] array)
     }
     return count;
 }
-int[] SortArray(int[] array)
+void SortArray(int[] array)
 {
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPos = i;
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] < array[minPos])
+            {
+                minPos = j;
+            }
+        }
+        int temp = array[i];
+        array[i] = array[minPos];
+        array[minPos] = temp;
+    }
+}
+int[] GetNewSortedArray(int[] array)
+{
+    int[] newArray = new int[array.Length];
     for (int i = 0; i < array.Length; i++)
     {
         int minPos = i;
@@ -72,26 +93,13 @@ int[] SortArray(int[] array)
                 minPos = j;
             }
         }
-        
+        newArray[i] = array[minPos];
     }
+    return newArray;
 }
-// void selectionSort(int[] arr)
-// {
-//     for (int i = 0; i < arr.Length - 1; i++)
-//     {
-//     int minPos = i;
-//     for (int j = i + 1; j < arr.Length; j++)
-//     {
-//         if (arr[j] < arr[minPos])
-//         {
-//             minPos = j;
-//         }
-//     }
-//     int temp = arr[i];
-//     arr[i] = arr[minPos];
-//     arr[minPos] = temp;
-//     }
-// }
+
+
+
 
 
 
