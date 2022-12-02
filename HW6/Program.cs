@@ -23,8 +23,6 @@ switch (task)
         Console.WriteLine($"Начальный массив:");
         Console.WriteLine($"[{String.Join(" ", array43)}]");
         Console.WriteLine($"Отсортированный массив:");
-        int[] NewSortArray43 = GetNewSortedArray(array43);
-        Console.WriteLine($"[{String.Join(" ", NewSortArray43)}]");
         SortArray(array43);
         Console.WriteLine($"[{String.Join(" ", array43)}]");
         break;
@@ -80,23 +78,7 @@ void SortArray(int[] array)
         array[minPos] = temp;
     }
 }
-int[] GetNewSortedArray(int[] array)
-{
-    int[] newArray = new int[array.Length];
-    for (int i = 0; i < array.Length; i++)
-    {
-        int minPos = i;
-        for (int j = i + 1; j < array.Length; j++)
-        {
-            if (array[j] < array[minPos])
-            {
-                minPos = j;
-            }
-        }
-        newArray[i] = array[minPos];
-    }
-    return newArray;
-}
+
 
 
 
