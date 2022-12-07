@@ -30,9 +30,12 @@ switch (task)
         int[] array43 = GetRandArray(N43, 0, 100);
         Console.WriteLine($"Начальный массив:");
         Console.WriteLine($"[{String.Join(" ", array43)}]");
+        int[] array43Sorted = SortArrayNewArray(array43);
         Console.WriteLine($"Отсортированный массив:");
         SortArray(array43);
         Console.WriteLine($"[{String.Join(" ", array43)}]");
+        Console.WriteLine($"Отсортированный новый массив:");
+        Console.WriteLine($"[{String.Join(" ", array43Sorted)}]");
         break;
 }
 //----methods-----
@@ -104,6 +107,22 @@ int PositiveCountV2(int[] array)
         if (item > 0) count += 1;
     }
     return count;
+}
+int[] SortArrayNewArray(int[] array)
+{
+    for (int i = 0; i < array.Length-1; i++)
+    {
+        for (int j = 0; j < array.Length; j++)
+        {
+            if (array[j]<array[i])
+            {
+                int temp = array[i];
+                array[i]= array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    return array;
 }
 
 
