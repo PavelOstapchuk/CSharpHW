@@ -12,6 +12,14 @@ switch (task)
         int[] array41 = EnterNewArray(M41);
         Console.WriteLine($"[{String.Join(" ", array41)}]");
         Console.WriteLine($"{PositiveCount(array41)} из заданных {M41} чисел больше 0");
+        Console.WriteLine($"Расчет по методу строкового массива.");
+        Console.WriteLine($"Введите числа через пробел: ");
+        int[] array41v1 = GetArrayFromString(Console.ReadLine()!);
+        Console.WriteLine($"[{String.Join(" ", array41v1)}]");
+        Console.WriteLine($"{PositiveCountV2(array41v1)} из введенных чисел больше 0");
+
+
+
         break;
     case 43:
         // на вход массив не менее 6 элементов от 0 до 100
@@ -78,8 +86,25 @@ void SortArray(int[] array)
         array[minPos] = temp;
     }
 }
-
-
+int[] GetArrayFromString(string stringArray)
+{
+    string[] numS = stringArray.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+    int[] result = new int[numS.Length];
+    for (int i = 0; i < result.Length; i++)
+    {
+        result[i] = int.Parse(numS[i]);
+    }
+    return result;
+}
+int PositiveCountV2(int[] array)
+{
+    int count = 0;
+    foreach (var item in array)
+    {
+        if (item > 0) count += 1;
+    }
+    return count;
+}
 
 
 
